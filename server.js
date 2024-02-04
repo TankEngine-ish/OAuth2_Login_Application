@@ -1,10 +1,15 @@
+const fs = require('fs');
 const https = require('https');   
 const path = require('path');
 const express = require('express');
+const helmet = require('helmet');
 
 const PORT = 3000;
 
 const app = express();
+
+
+app.use(helmet()); // every request passes through helmet middleware
 
 app.get('/secret', (req, res) => {
     res.send('Hello from server'); 
@@ -15,8 +20,8 @@ app.get('/', (req, res) => {
 });
 
 https.createServer({
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.cert')
-}).listen(PORT, () => {
+    key: fs.readFileSync('key.pem'),
+    cert: fs.readFileSync('cert.pem'),
+}, app).listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
