@@ -1,6 +1,6 @@
 # OAuth_Project
 
-
+This is a small Node application that I registered with Google in order to test and play around with OAuth2.
 
 # Generating certificates.
  
@@ -30,9 +30,5 @@ key.pem encrypts the data for the server identified by the cert.pem and cert.pem
 * resource owner (user), client (the web app), resource server (backend of the app), authorization server (the server that authorizes the owner and gives them access tokens). 
 
 * Authorization Code Flow.
-
-91075174542-b51qsu3ak96m9oi295km1oissstvugh7.apps.googleusercontent.com
-
-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
 
 
