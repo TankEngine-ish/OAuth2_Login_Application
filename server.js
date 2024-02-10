@@ -11,6 +11,26 @@ const app = express();
 
 app.use(helmet()); // every request passes through helmet middleware
 
+
+
+
+function checkLoggedIn(req, res, next) {
+app.use((req, res, next) => {
+    const isLoggedIn = true;
+    if(!isLoggedIn) {
+        return res.status(401).json({
+            error: 'You must log in!'
+        });
+    }
+    next();
+}
+
+
+
+
+
+
+
 app.get('/secret', (req, res) => {
     res.send('Hello from server'); 
 });
