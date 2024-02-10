@@ -35,8 +35,22 @@ function verifiyCallback(accessToken, refreshToken, profile, done) {
 
 
 
-
 passport.use(new Strategy(AUTH_OPTIONS, verifiyCallback));
+
+
+
+// save the session to the cookie
+passport.serializeUser((user, done) => {
+    done(null, user);
+
+});
+
+// loading the session from the cookie
+passport.deserializeUser((obj, done) => {  
+    done(null, obj);
+});
+
+
 
 
 const app = express();
@@ -51,10 +65,8 @@ app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000, 
     keys: [ config.COOKIE_KEY_1, config.COOKIE_KEY_2 ]
 }));
-
-
-
 app.use(passport.initialize());
+app.use(passport.session()); // this authenticates the session that is being send to the server
 
 
 function checkLoggedIn(req, res, next) {
@@ -78,7 +90,7 @@ app.get('/auth/google/callback',
     passport.authenticate('google', {
         failureRedirect: '/failure',
         successRedirect: '/',
-        session: false,
+        session: true,
     }), 
     (req, res) => {
         console.log('Logged in!');
