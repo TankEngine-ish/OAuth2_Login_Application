@@ -1,6 +1,6 @@
 # OAuth_Project
 
-This is a small Node application that I registered with Google in order to test and play around with OAuth2.
+This is a small Node application that I registered with Google in order to test and play around with OAuth2, cookies
 
 # Generating certificates.
  
@@ -13,7 +13,6 @@ It generates a self-signed X.509 certificate (they are commonly used for testing
 The private key is not encrypted with a passphrase (-nodes), and both the key and the certificate are written to separate files named key.pem and cert.pem, respectively. The certificate will be valid for 365 days from the time it is generated.
 
 key.pem encrypts the data for the server identified by the cert.pem and cert.pem decrypts the data encrypted with key.pem
-
 
 * securing a server with helmet.js 
 
@@ -30,5 +29,7 @@ key.pem encrypts the data for the server identified by the cert.pem and cert.pem
 * resource owner (user), client (the web app), resource server (backend of the app), authorization server (the server that authorizes the owner and gives them access tokens). 
 
 * Authorization Code Flow.
+
+* Stateful cookies (with server-side sessions) and stateless (with client-side sessions) cookies.
 
 
