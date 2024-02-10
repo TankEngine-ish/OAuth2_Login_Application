@@ -27,38 +27,31 @@ const AUTH_OPTIONS = {
     clientSecret: config.CLIENT_SECRET,
 };
 
-
 function verifiyCallback(accessToken, refreshToken, profile, done) {
     console.log('Google profile:', profile);
     done(null, profile);
 }
 
-
-
 passport.use(new Strategy(AUTH_OPTIONS, verifiyCallback));
-
-
 
 // save the session to the cookie
 passport.serializeUser((user, done) => {
-    done(null, user);
-
+    done(null, user.id);
 });
+
 
 // loading the session from the cookie
-passport.deserializeUser((obj, done) => {  
-    done(null, obj);
+passport.deserializeUser((id, done) => {  
+    // User.findById.then(user => { 
+    //     done(null, user);
+    // });
+    done(null, id);
 });
-
-
 
 
 const app = express();
 
-
 app.use(helmet()); // every request passes through helmet middleware
-
-
 
 app.use(cookieSession({
     name: 'session',
