@@ -93,7 +93,10 @@ app.get('/auth/google/callback',
 
 
 
-app.get('/auth/logout', (req, res) => {});
+app.get('/auth/logout', (req, res) => {
+    req.logout(); // removes req.user and clears any logged in session
+    return res.redirect('/'); // navigates the user away from a protected route after logging out
+});
 
 
 app.get('/secret', checkLoggedIn, (req, res) => {
