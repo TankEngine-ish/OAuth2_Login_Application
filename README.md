@@ -4,7 +4,7 @@ This is a small Node application that I registered with Google in order to test 
 
 NOTE: Private keys and certificates should be stored to an .env file inside a .gitignore but in my case it doesn't really matter.
 
-# Personal Notesand things I've learned
+# Personal Notes and things I've learned
  
 * Generating SSL certificates like the one below for example:
 
