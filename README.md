@@ -2,7 +2,7 @@
 
 This is a small Node application that I registered with Google in order to test and play around with OAuth2, cookies, sessions, etc.
 
-NOTE: Private keys and certificates should be stored to an .env file inside a .gitignore but in my case it doesn't really matter.
+NOTE: Private keys and certificates should be stored to an .env file inside a gitignore.
 
 # Personal Notes and things I've learned
  
